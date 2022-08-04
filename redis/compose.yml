@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  rdb:
+    image: redis:7.0.2
+    container_name: Redis-dev
+    hostname: redis
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - ./data:/data

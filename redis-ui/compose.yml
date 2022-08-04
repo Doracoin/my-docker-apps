@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  redis-ui-local:
+    image: patrikx3/p3x-redis-ui:2022.4.126
+    container_name: redis-ui
+    hostname: redis-ui
+    restart: always
+    ports:
+      - 7843:7843
+    volumes:
+      # here you can set your own /home/user/p3x-redis-ui-settings folder
+      - ./p3x-redis-ui-settings:/settings
+
+  redis-commander-local:
+    image: ghcr.io/joeferner/redis-commander:latest
+    container_name: redis-commander
+    hostname: redis-commander
+    restart: always
+    ports:
+      - "8081:8081"

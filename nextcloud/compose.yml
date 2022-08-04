@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  nextcloud:
+    image: nextcloud:24.0.2
+    container_name: nextcloud
+    hostname: nextcloud
+    restart: unless-stopped
+    ports:
+      - 8881:80
+    volumes:
+      - ./nextcloud-data:/var/www/html
