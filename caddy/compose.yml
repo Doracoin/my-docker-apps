@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  caddy:
+    image: caddy:2.5.2-alpine
+    container_name: caddy
+    links:
+      - web
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy_data:/data
+      - ./caddy_config:/config
+      - ./caddy_site:/srv
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    # networks:
+    #   - internal_network
+    #   - external_network
+    depends_on:
+      - web
