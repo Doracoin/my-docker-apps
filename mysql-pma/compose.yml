@@ -1,28 +1,30 @@
-version: '3'
+version: '3.8'
 
 services:
   db:
-    image: mysql:5.7.38
-    container_name: MySQL-dev
-    volumes:
-      - ./db:/var/lib/mysql
+    image: mysql:5.7.44
+    container_name: mysql
+    hostname: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_ROOT_PASSWORD: 'At9dAF5a_+pxM&y'
     expose:
-      - 3306
+      - 3306:3306
     ports:
       - 3306:3306
+    volumes:
+      - ./mysqldata:/var/lib/mysql
 
   phpmyadmin:
     depends_on:
       - db
-    image: phpmyadmin:5.2.0
-    container_name: PMA-Dev
+    image: phpmyadmin:5.2.1
+    container_name: phpmyadmin
+    hostname: phpmyadmin
     restart: always
-    working_dir:
-      /www/mysql-with-phpmyadmin/pma
-    ports:
-      - 8088:80
     environment:
       - PMA_PORT=3306
+    ports:
+      - 8088:80
+    working_dir:
+      /www/mysql-with-phpmyadmin/pma
