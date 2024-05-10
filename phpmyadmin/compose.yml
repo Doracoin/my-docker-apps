@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    container_name: phpmyadmin
+    hostname: phpmyadmin
+    restart: always
+    environment:
+      - PMA_PORT=3306
+    ports:
+      - 8088:80
+    working_dir:
+      /www/mysql-with-phpmyadmin/pma
