@@ -3,15 +3,17 @@ services:
     image: mysql:5.7.44
     container_name: mysql
     hostname: mysql
+    #restart: always
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: 'At9dAF5a_+pxM&y'
+      MYSQL_ROOT_PASSWORD: ''
     expose:
       - 3306:3306
     ports:
       - 3306:3306
     volumes:
       - ./mysql_data:/var/lib/mysql
+      - /var/run/mysqld:/var/run/mysqld
 
   phpmyadmin:
     depends_on:
@@ -19,15 +21,14 @@ services:
     image: phpmyadmin:5.2.1
     container_name: phpmyadmin
     hostname: phpmyadmin
+    #restart: always
     restart: unless-stopped
     environment:
 #      - PMA_HOSTS=127.0.0.1
       - PMA_PORT=3306
 #      - PMA_USER=root
-#      - PMA_PASSWORD=At9dAF5a_+pxM&y
-      - PMA_CONTROLUSER=admin
-      - PMA_CONTROLPASS=123456
+#      - PMA_PASSWORD=
+#      - PMA_CONTROLUSER=
+#      - PMA_CONTROLPASS=
     ports:
       - 8088:80
-    working_dir:
-      /www/mysql-with-phpmyadmin/pma
