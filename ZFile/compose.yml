@@ -1,0 +1,13 @@
+services:
+    zfile:
+        container_name: zfile
+        restart: always
+        ports:
+            - '8282:8080'
+        volumes:
+            - './db:/root/.zfile-v4/db'
+            - './logs:/root/.zfile-v4/logs'
+            - 'D:/Medias/Pictures/:/data/file/Pictures'
+            - 'D:/Medias/Music/:/data/file/Music'
+            - 'C:/Users/NAS/Downloads/SoftWare:/data/file/SoftWare'
+        image: docker-mirror.vivi.moe/zhaojun1998/zfile
