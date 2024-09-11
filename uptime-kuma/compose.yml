@@ -1,0 +1,9 @@
+services:  
+  portainer:
+    image: docker-mirror.vivi.moe/louislam/uptime-kuma:1.23.13-alpine
+    container_name: uptime-kuma
+    volumes:
+      - ./uptimekuma_data:/app/data
+    ports:
+      - "3001:3001"
+    restart: always

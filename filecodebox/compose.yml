@@ -1,0 +1,10 @@
+services:  
+  filecodebox:
+    image: docker-mirror.vivi.moe/lanol/filecodebox:beta
+    #image: 10a505f1.cf-workers-docker-io-8dk.pages.dev/lanol/filecodebox:beta
+    container_name: filecodebox
+    volumes:
+      - C:/Users/NAS/Downloads/FileCodeBox/:/app/data
+    ports:
+      - "12346:12345"
+    restart: always
