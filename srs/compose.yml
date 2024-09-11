@@ -1,0 +1,14 @@
+version: '3'
+# https://ossrs.io/lts/zh-cn/docs/v4/doc/getting-started
+services:
+  srs:
+    image: registry.cn-hangzhou.aliyuncs.com/ossrs/srs:6.0.85
+    container_name: srs
+    ports:
+      - 1935:1935
+      - 1985:1985
+      - 8080:8080
+      - 8000:8000
+    command: ./objs/srs -c conf/docker.conf
+    restart: always
+

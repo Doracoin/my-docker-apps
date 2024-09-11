@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   rdb:
-    image: redis:7.0.5
-    container_name: Redis-dev
+    image: redis:7.4.0-alpine3.20
+    container_name: redis
     hostname: redis
     restart: always
     ports:
@@ -12,5 +10,5 @@ services:
       - 6379:6379
     volumes:
       - ./data:/data
-      - ./redis.conf:/usr/local/etc/redis/redis.conf
-    command: redis-server /usr/local/etc/redis/redis.conf
+      - ./redis.conf:/home/redis.conf
+    command: redis-server /home/redis.conf

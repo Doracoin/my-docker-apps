@@ -1,13 +1,11 @@
-version: '3'
-
 services:  
   portainer:
-    image: portainer/portainer-ce:2.15.1-alpine
+    image: portainer/portainer-ce:2.21.1-alpine
     container_name: portainer
     volumes:
       - ./portainer_data:/data
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - "8000:8000"
-      - "19999:9443"
+      - "9443:9443"
     restart: always
