@@ -1,5 +1,5 @@
 services:  
-  portainer:
+  uptime-kuma:
     image: docker-mirror.vivi.moe/louislam/uptime-kuma:1.23.13-alpine
     container_name: uptime-kuma
     volumes:
