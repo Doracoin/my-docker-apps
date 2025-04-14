@@ -1,0 +1,11 @@
+services:
+  nginx-ui:
+    image: uozi/nginx-ui:latest
+    ports:
+      - "801:80"
+      - "4431:443"
+      - "9001:9000"
+    volumes:
+      - "./nginx:/etc/nginx"
+      - "./nginx-ui:/etc/nginx-ui"
+    restart: unless-stopped
