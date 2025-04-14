@@ -1,0 +1,10 @@
+services:
+  music-tag:
+    image: docker-mirror.vivi.moe/xhongc/music_tag_web:latest
+    container_name: music-tag-web
+    ports:
+      - "8002:8002"
+    volumes:
+      - D:/Medias/Music:/app/media:rw
+      - ./config:/app/data
+    restart: unless-stopped
